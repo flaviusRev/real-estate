@@ -38,7 +38,7 @@ const MainPage = () => {
 
   useEffect(() => {
     if (jsonFilters) {
-      console.log("jsonfilterS:", jsonFilters);
+      console.log("jsonFilters:", jsonFilters);
       // Update applied filters based on jsonFilters
       setAppliedFilters({
         searchTerm: "", // Assuming jsonFilters doesn't contain a searchTerm
@@ -50,6 +50,9 @@ const MainPage = () => {
         minRentPrice: jsonFilters.minRentPrice || "",
         maxRentPrice: jsonFilters.maxRentPrice || "",
       });
+      setIsSearchApplied(true); // Set isSearchApplied to true if jsonFilters is present
+    } else {
+      setIsSearchApplied(false); // Reset isSearchApplied if jsonFilters is null
     }
   }, [jsonFilters]);
 
